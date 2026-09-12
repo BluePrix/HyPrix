@@ -396,3 +396,16 @@ footer strong {
         gap: 8px;
     }
 }
+/* TOP HYPrix LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 82px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
