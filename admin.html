@@ -207,7 +207,6 @@ document
                     "block";
 
                 return;
-
             }
 
 
@@ -242,7 +241,7 @@ document
 
 
                 console.log(
-                    "Admin login:",
+                    "Admin login response:",
                     response.status,
                     result
                 );
@@ -253,12 +252,6 @@ document
                     result.success &&
                     result.session
                 ) {
-
-                    /*
-                     * IMPORTANT:
-                     * Use localStorage so the
-                     * session survives navigation.
-                     */
 
                     localStorage.setItem(
                         "hyprix-admin-session",
@@ -287,20 +280,13 @@ document
                             "Login";
 
                         return;
-
                     }
 
-
-                    /*
-                     * Go directly to the
-                     * dashboard.
-                     */
 
                     window.location.href =
                         "./admin-dashboard.html";
 
                     return;
-
                 }
 
 
@@ -319,13 +305,11 @@ document
                     err
                 );
 
-
                 error.textContent =
                     "Unable to connect to the support server.";
 
                 error.style.display =
                     "block";
-
             }
 
 
