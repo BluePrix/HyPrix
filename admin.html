@@ -88,6 +88,13 @@
             box-shadow: 0 8px 25px rgba(20, 110, 255, 0.3);
         }
 
+        .admin-button:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
         .admin-error {
             display: none;
             margin-top: 15px;
@@ -174,6 +181,9 @@
 </main>
 
 <script>
+    const WORKER_URL =
+        "https://hyprix-support.blueprixsupport.workers.dev";
+
     document
         .getElementById("admin-form")
         .addEventListener("submit", async function (event) {
@@ -183,27 +193,71 @@
             const code =
                 document
                     .getElementById("admin-code")
-                    .value;
+                    .value
+                    .trim();
 
             const error =
                 document.getElementById("admin-error");
 
+            const button =
+                document.querySelector(".admin-button");
+
             error.style.display = "none";
 
-            /*
-             * IMPORTANT:
-             *
-             * We are NOT putting the real admin
-             * code in this JavaScript.
-             *
-             * The login will be connected to the
-             * secure Cloudflare backend next.
-             */
+            if (!code) {
+                error.textContent =
+                    "Please enter your admin code.";
 
-            error.textContent =
-                "The secure admin backend has not been connected yet.";
+                error.style.display = "block";
+                return;
+            }
 
-            error.style.display = "block";
+            button.disabled = true;
+            button.textContent = "Checking...";
+
+            try {
+
+                const response = await fetch(
+                    WORKER_URL + "/admin/login",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            code: code
+                        })
+                    }
+                );
+
+                const result =
+                    await response.json();
+
+                if (response.ok && result.success) {
+
+                    window.location.href =
+                        "./admin-dashboard.html";
+
+                    return;
+                }
+
+                error.textContent =
+                    "Invalid admin code.";
+
+                error.style.display = "block";
+
+            } catch (err) {
+
+                error.textContent =
+                    "Unable to connect to the support server.";
+
+                error.style.display = "block";
+            }
+
+            button.disabled = false;
+            button.textContent = "Login";
         });
 </script>
 
