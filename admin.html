@@ -194,7 +194,9 @@ document
                     ".admin-button"
                 );
 
+
             error.style.display = "none";
+
 
             if (!code) {
 
@@ -205,16 +207,20 @@ document
                     "block";
 
                 return;
+
             }
+
 
             button.disabled = true;
             button.textContent = "Checking...";
+
 
             try {
 
                 const response =
                     await fetch(
-                        WORKER_URL + "/admin/login",
+                        WORKER_URL +
+                        "/admin/login",
                         {
                             method: "POST",
 
@@ -223,19 +229,24 @@ document
                                     "application/json"
                             },
 
-                            body: JSON.stringify({
-                                code: code
-                            })
+                            body:
+                                JSON.stringify({
+                                    code: code
+                                })
                         }
                     );
+
 
                 const result =
                     await response.json();
 
+
                 console.log(
-                    "Admin login response:",
+                    "Admin login:",
+                    response.status,
                     result
                 );
+
 
                 if (
                     response.ok &&
@@ -243,15 +254,23 @@ document
                     result.session
                 ) {
 
-                    sessionStorage.setItem(
+                    /*
+                     * IMPORTANT:
+                     * Use localStorage so the
+                     * session survives navigation.
+                     */
+
+                    localStorage.setItem(
                         "hyprix-admin-session",
                         result.session
                     );
 
+
                     const savedSession =
-                        sessionStorage.getItem(
+                        localStorage.getItem(
                             "hyprix-admin-session"
                         );
+
 
                     if (!savedSession) {
 
@@ -261,17 +280,29 @@ document
                         error.style.display =
                             "block";
 
-                        button.disabled = false;
-                        button.textContent = "Login";
+                        button.disabled =
+                            false;
+
+                        button.textContent =
+                            "Login";
 
                         return;
+
                     }
+
+
+                    /*
+                     * Go directly to the
+                     * dashboard.
+                     */
 
                     window.location.href =
                         "./admin-dashboard.html";
 
                     return;
+
                 }
+
 
                 error.textContent =
                     result.error ||
@@ -280,6 +311,7 @@ document
                 error.style.display =
                     "block";
 
+
             } catch (err) {
 
                 console.error(
@@ -287,15 +319,22 @@ document
                     err
                 );
 
+
                 error.textContent =
                     "Unable to connect to the support server.";
 
                 error.style.display =
                     "block";
+
             }
 
-            button.disabled = false;
-            button.textContent = "Login";
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Login";
+
         }
     );
 
