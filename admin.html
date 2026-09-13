@@ -3,24 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HyPrix Admin</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="./HyPrix.png"
-    >
-
-    <link
-        rel="stylesheet"
-        href="./style.css"
-    >
+    <link rel="icon" type="image/png" href="./HyPrix.png">
+    <link rel="stylesheet" href="./style.css">
 
     <style>
         .admin-container {
@@ -118,7 +106,6 @@
 <body>
 
 <header>
-
     <div class="logo">
         <img
             src="./HyPrix.png"
@@ -131,7 +118,6 @@
         <a href="./index.html">Home</a>
         <a href="./support.html">Support</a>
     </nav>
-
 </header>
 
 <main class="admin-container">
@@ -181,12 +167,16 @@
 </main>
 
 <script>
-    const WORKER_URL =
-        "https://hyprix-support.blueprixsupport.workers.dev";
 
-    document
-        .getElementById("admin-form")
-        .addEventListener("submit", async function (event) {
+const WORKER_URL =
+    "https://hyprix-support.blueprixsupport.workers.dev";
+
+
+document
+    .getElementById("admin-form")
+    .addEventListener(
+        "submit",
+        async function (event) {
 
             event.preventDefault();
 
@@ -197,18 +187,25 @@
                     .trim();
 
             const error =
-                document.getElementById("admin-error");
+                document.getElementById(
+                    "admin-error"
+                );
 
             const button =
-                document.querySelector(".admin-button");
+                document.querySelector(
+                    ".admin-button"
+                );
 
             error.style.display = "none";
 
             if (!code) {
+
                 error.textContent =
                     "Please enter your admin code.";
 
-                error.style.display = "block";
+                error.style.display =
+                    "block";
+
                 return;
             }
 
@@ -217,25 +214,44 @@
 
             try {
 
-                const response = await fetch(
-                    WORKER_URL + "/admin/login",
-                    {
-                        method: "POST",
+                const response =
+                    await fetch(
+                        WORKER_URL + "/admin/login",
+                        {
+                            method: "POST",
 
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
 
-                        body: JSON.stringify({
-                            code: code
-                        })
-                    }
-                );
+                            body: JSON.stringify({
+                                code: code
+                            })
+                        }
+                    );
 
                 const result =
                     await response.json();
 
-                if (response.ok && result.success) {
+                if (
+                    response.ok &&
+                    result.success &&
+                    result.session
+                ) {
+
+                    /*
+                     * Store the temporary admin
+                     * session in this browser.
+                     *
+                     * The actual admin code is
+                     * NEVER stored here.
+                     */
+
+                    sessionStorage.setItem(
+                        "hyprix-admin-session",
+                        result.session
+                    );
 
                     window.location.href =
                         "./admin-dashboard.html";
@@ -246,19 +262,25 @@
                 error.textContent =
                     "Invalid admin code.";
 
-                error.style.display = "block";
+                error.style.display =
+                    "block";
 
             } catch (err) {
+
+                console.error(err);
 
                 error.textContent =
                     "Unable to connect to the support server.";
 
-                error.style.display = "block";
+                error.style.display =
+                    "block";
             }
 
             button.disabled = false;
             button.textContent = "Login";
-        });
+        }
+    );
+
 </script>
 
 </body>
