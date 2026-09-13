@@ -85,12 +85,10 @@
 
         .conversation:hover {
             border-color: rgba(80, 150, 255, 0.4);
-            transform: translateY(-1px);
         }
 
         .conversation.active {
             border-color: #1677ff;
-            box-shadow: 0 0 15px rgba(22, 119, 255, 0.15);
         }
 
         .conversation-name {
@@ -109,7 +107,8 @@
             margin-top: 6px;
         }
 
-        .empty {
+        .empty,
+        .loading {
             color: #7182a5;
             font-size: 14px;
         }
@@ -194,11 +193,6 @@
             font-family: inherit;
         }
 
-        .reply-input:focus {
-            border-color: rgba(80, 150, 255, 0.8);
-            box-shadow: 0 0 15px rgba(50, 120, 255, 0.15);
-        }
-
         .reply-button {
             border: none;
             padding: 13px 20px;
@@ -207,10 +201,6 @@
             color: white;
             font-weight: 600;
             cursor: pointer;
-        }
-
-        .reply-button:hover {
-            box-shadow: 0 8px 25px rgba(20, 110, 255, 0.3);
         }
 
         .reply-button:disabled {
@@ -228,22 +218,14 @@
             margin-top: 10px;
         }
 
-        .close-button:hover {
-            background: rgba(120, 25, 35, 0.45);
-        }
-
-        .loading {
-            color: #8fa3c9;
-        }
-
         .dashboard-error {
+            display: none;
             margin-bottom: 20px;
             padding: 13px 16px;
             border-radius: 12px;
             background: rgba(255, 50, 70, 0.1);
             border: 1px solid rgba(255, 50, 70, 0.2);
             color: #ff8995;
-            display: none;
         }
 
         @media (max-width: 800px) {
@@ -311,8 +293,6 @@
 
     <div class="dashboard-grid">
 
-        <!-- CONVERSATIONS -->
-
         <div class="panel">
 
             <h2>Conversations</h2>
@@ -328,8 +308,6 @@
 
         </div>
 
-
-        <!-- CHAT -->
 
         <div class="panel chat">
 
@@ -399,11 +377,11 @@ const WORKER_URL =
 
 
 /* =========================
-   ADMIN SESSION
+   SESSION
 ========================= */
 
 const session =
-    sessionStorage.getItem(
+    localStorage.getItem(
         "hyprix-admin-session"
     );
 
@@ -425,7 +403,7 @@ let selectedConversation = null;
 
 
 /* =========================
-   ERROR DISPLAY
+   ERROR
 ========================= */
 
 function showError(message) {
@@ -435,9 +413,11 @@ function showError(message) {
             "dashboard-error"
         );
 
-    box.textContent = message;
+    box.textContent =
+        message;
 
-    box.style.display = "block";
+    box.style.display =
+        "block";
 
 }
 
@@ -466,6 +446,7 @@ async function api(
 
     let response;
 
+
     try {
 
         response =
@@ -477,7 +458,7 @@ async function api(
     } catch (error) {
 
         console.error(
-            "API connection error:",
+            "Connection error:",
             error
         );
 
@@ -492,7 +473,7 @@ async function api(
 
     if (response.status === 401) {
 
-        sessionStorage.removeItem(
+        localStorage.removeItem(
             "hyprix-admin-session"
         );
 
@@ -505,11 +486,12 @@ async function api(
     }
 
 
-    let data;
+    let result;
+
 
     try {
 
-        data =
+        result =
             await response.json();
 
     } catch (error) {
@@ -530,20 +512,15 @@ async function api(
 
     if (!response.ok) {
 
-        console.error(
-            "API error:",
-            data
-        );
-
         showError(
-            data.error ||
+            result.error ||
             "The server returned an error."
         );
 
     }
 
 
-    return data;
+    return result;
 
 }
 
@@ -575,9 +552,7 @@ async function loadConversations() {
     }
 
 
-    if (
-        !result.success
-    ) {
+    if (!result.success) {
 
         list.innerHTML =
             '<div class="empty">Unable to load conversations.</div>';
@@ -682,9 +657,7 @@ async function loadConversations() {
    OPEN CONVERSATION
 ========================= */
 
-async function openConversation(
-    id
-) {
+async function openConversation(id) {
 
     selectedConversation =
         id;
@@ -696,11 +669,10 @@ async function openConversation(
             {
                 method: "POST",
 
-                body: JSON.stringify({
-
-                    id: id
-
-                })
+                body:
+                    JSON.stringify({
+                        id: id
+                    })
             }
         );
 
@@ -710,9 +682,7 @@ async function openConversation(
     }
 
 
-    if (
-        !result.success
-    ) {
+    if (!result.success) {
 
         showError(
             result.error ||
@@ -744,9 +714,7 @@ async function openConversation(
                 ${escapeHtml(
                     conversation.support_code
                 )}
-
                 •
-
                 ${escapeHtml(
                     conversation.status
                 )}
@@ -851,7 +819,7 @@ async function openConversation(
 
 
 /* =========================
-   SEND ADMIN REPLY
+   REPLY
 ========================= */
 
 document
@@ -862,9 +830,7 @@ document
         "click",
         async function () {
 
-            if (
-                !selectedConversation
-            ) {
+            if (!selectedConversation) {
                 return;
             }
 
@@ -940,7 +906,7 @@ document
 
 
 /* =========================
-   CLOSE CONVERSATION
+   CLOSE
 ========================= */
 
 document
@@ -951,20 +917,16 @@ document
         "click",
         async function () {
 
-            if (
-                !selectedConversation
-            ) {
+            if (!selectedConversation) {
                 return;
             }
 
 
-            const confirmed =
-                confirm(
+            if (
+                !confirm(
                     "Close this conversation?"
-                );
-
-
-            if (!confirmed) {
+                )
+            ) {
                 return;
             }
 
@@ -1024,7 +986,7 @@ document
         "click",
         function () {
 
-            sessionStorage.removeItem(
+            localStorage.removeItem(
                 "hyprix-admin-session"
             );
 
@@ -1041,9 +1003,7 @@ document
    ESCAPE HTML
 ========================= */
 
-function escapeHtml(
-    value
-) {
+function escapeHtml(value) {
 
     return String(value)
 
@@ -1076,7 +1036,7 @@ function escapeHtml(
 
 
 /* =========================
-   START DASHBOARD
+   START
 ========================= */
 
 loadConversations();
