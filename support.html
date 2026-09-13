@@ -3,58 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HyPrix Support</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="./HyPrix.png"
-    >
-
-    <link
-        rel="stylesheet"
-        href="./style.css"
-    >
+    <link rel="icon" type="image/png" href="./HyPrix.png">
+    <link rel="stylesheet" href="./style.css">
 
     <style>
         .support-container {
-            max-width: 900px;
-            margin: 80px auto;
+            max-width: 950px;
+            margin: 50px auto;
             padding: 20px;
         }
 
         .support-box {
-            background: rgba(8, 20, 45, 0.75);
+            background: rgba(8, 20, 45, 0.78);
             border: 1px solid rgba(80, 150, 255, 0.2);
             border-radius: 22px;
-            padding: 35px;
-            box-shadow: 0 0 35px rgba(0, 100, 255, 0.12);
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 100, 255, 0.12);
             backdrop-filter: blur(15px);
         }
 
-        .support-box h1 {
-            margin-bottom: 10px;
+        .support-title {
+            margin-bottom: 8px;
         }
 
-        .support-box > p {
+        .support-description {
             color: #aab8d4;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .support-input {
             width: 100%;
             box-sizing: border-box;
             padding: 15px 17px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-radius: 12px;
             border: 1px solid rgba(100, 160, 255, 0.25);
-            background: rgba(0, 10, 30, 0.65);
+            background: rgba(0, 10, 30, 0.7);
             color: white;
             outline: none;
             font-size: 15px;
@@ -67,7 +55,7 @@
 
         .support-button {
             border: none;
-            padding: 14px 22px;
+            padding: 13px 20px;
             border-radius: 12px;
             background: #1677ff;
             color: white;
@@ -82,15 +70,152 @@
             box-shadow: 0 8px 25px rgba(20, 110, 255, 0.3);
         }
 
-        .support-note {
+        .secondary-button {
+            background: rgba(20, 45, 85, 0.8);
+            border: 1px solid rgba(100, 160, 255, 0.25);
+        }
+
+        .support-error {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 50, 70, 0.1);
+            border: 1px solid rgba(255, 50, 70, 0.2);
+            color: #ff8995;
+            font-size: 14px;
+        }
+
+        .support-code-box {
+            display: none;
             margin-top: 20px;
+            padding: 18px;
+            border-radius: 14px;
+            background: rgba(20, 55, 105, 0.45);
+            border: 1px solid rgba(80, 150, 255, 0.25);
+        }
+
+        .support-code-label {
+            color: #8fa3c9;
             font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .support-code {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #78adff;
+        }
+
+        .chat {
+            display: none;
+        }
+
+        .chat-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(100, 160, 255, 0.15);
+        }
+
+        .chat-top h2 {
+            margin: 0;
+        }
+
+        .chat-code {
+            color: #78adff;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .messages {
+            height: 450px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 5px;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .message.customer {
+            align-self: flex-end;
+            background: #1677ff;
+        }
+
+        .message.admin {
+            align-self: flex-start;
+            background: rgba(35, 55, 95, 0.8);
+        }
+
+        .message-label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .message-time {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid rgba(100, 160, 255, 0.15);
+            padding-top: 18px;
+        }
+
+        .chat-input {
+            flex: 1;
+            min-height: 50px;
+            max-height: 140px;
+            resize: vertical;
+            padding: 13px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 160, 255, 0.25);
+            background: rgba(0, 10, 30, 0.7);
+            color: white;
+            outline: none;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .chat-input:focus {
+            border-color: rgba(80, 150, 255, 0.8);
+        }
+
+        .chat-status {
+            margin-top: 12px;
             color: #7182a5;
+            font-size: 12px;
+        }
+
+        .closed-message {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 180, 50, 0.08);
+            border: 1px solid rgba(255, 180, 50, 0.2);
+            color: #ffd27a;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 22px;
             color: #78adff;
             text-decoration: none;
         }
@@ -98,13 +223,35 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 650px) {
+            .support-box {
+                padding: 20px;
+            }
+
+            .chat-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .chat-input-area {
+                flex-direction: column;
+            }
+
+            .chat-input-area .support-button {
+                width: 100%;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-
     <div class="logo">
         <img
             src="./HyPrix.png"
@@ -119,16 +266,23 @@
         <a href="./index.html#games">Games</a>
         <a href="./index.html#about">About</a>
     </nav>
-
 </header>
+
 
 <main class="support-container">
 
-    <div class="support-box">
+    <!-- START SUPPORT -->
 
-        <h1>HyPrix Support</h1>
+    <div
+        id="start-section"
+        class="support-box"
+    >
 
-        <p>
+        <h1 class="support-title">
+            HyPrix Support
+        </h1>
+
+        <p class="support-description">
             Need help with a HyPrix app, game, or website?
             Start a conversation with our support team.
         </p>
@@ -150,11 +304,76 @@
             Start Support Chat
         </button>
 
-        <div class="support-note">
-            No email is required.
-            Your conversation will receive a unique
-            HyPrix support code.
+
+        <div
+            id="new-code-box"
+            class="support-code-box"
+        >
+
+            <div class="support-code-label">
+                Your support code
+            </div>
+
+            <div
+                id="new-code"
+                class="support-code"
+            >
+            </div>
+
+            <div class="support-code-label">
+                Save this code. You can use it to return
+                to this conversation later.
+            </div>
+
         </div>
+
+
+        <div
+            id="start-error"
+            class="support-error"
+        ></div>
+
+
+        <hr
+            style="
+                border: none;
+                border-top: 1px solid rgba(100,160,255,0.15);
+                margin: 30px 0;
+            "
+        >
+
+
+        <h2>
+            Return to a conversation
+        </h2>
+
+        <p class="support-description">
+            Already have a HyPrix support code?
+        </p>
+
+        <input
+            id="existing-code"
+            class="support-input"
+            type="text"
+            placeholder="Example: HP-A7K29XQF"
+            maxlength="32"
+            autocomplete="off"
+        >
+
+        <button
+            id="continue-button"
+            class="support-button secondary-button"
+            type="button"
+        >
+            Continue
+        </button>
+
+
+        <div
+            id="continue-error"
+            class="support-error"
+        ></div>
+
 
         <a
             href="./index.html"
@@ -165,34 +384,696 @@
 
     </div>
 
+
+    <!-- CHAT -->
+
+    <div
+        id="chat-section"
+        class="support-box chat"
+    >
+
+        <div class="chat-top">
+
+            <div>
+
+                <h2 id="customer-name">
+                    HyPrix Support
+                </h2>
+
+                <div
+                    id="chat-code"
+                    class="chat-code"
+                ></div>
+
+            </div>
+
+            <button
+                id="back-button"
+                class="support-button secondary-button"
+                type="button"
+            >
+                Back
+            </button>
+
+        </div>
+
+
+        <div
+            id="messages"
+            class="messages"
+        >
+        </div>
+
+
+        <div
+            id="closed-message"
+            class="closed-message"
+        >
+            This conversation has been closed by support.
+        </div>
+
+
+        <div
+            id="chat-input-area"
+            class="chat-input-area"
+        >
+
+            <textarea
+                id="chat-input"
+                class="chat-input"
+                placeholder="Type your message..."
+                maxlength="2000"
+            ></textarea>
+
+            <button
+                id="send-button"
+                class="support-button"
+                type="button"
+            >
+                Send
+            </button>
+
+        </div>
+
+
+        <div
+            id="chat-status"
+            class="chat-status"
+        >
+            Connected to HyPrix Support
+        </div>
+
+    </div>
+
 </main>
 
+
 <script>
+
+const WORKER_URL =
+    "https://hyprix-support.blueprixsupport.workers.dev";
+
+
+let currentCode = null;
+let currentName = null;
+let refreshTimer = null;
+
+
+const startSection =
+    document.getElementById(
+        "start-section"
+    );
+
+const chatSection =
+    document.getElementById(
+        "chat-section"
+    );
+
+
+function showError(element, message) {
+
+    element.textContent = message;
+    element.style.display = "block";
+}
+
+
+function hideError(element) {
+
+    element.style.display = "none";
+}
+
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+
+async function createConversation() {
+
+    const name =
+        document
+            .getElementById("name")
+            .value
+            .trim();
+
+    const error =
+        document.getElementById(
+            "start-error"
+        );
+
+    hideError(error);
+
+    if (!name) {
+
+        showError(
+            error,
+            "Please enter your name."
+        );
+
+        return;
+    }
+
+    const button =
+        document.getElementById(
+            "start-button"
+        );
+
+    button.disabled = true;
+    button.textContent = "Connecting...";
+
+    try {
+
+        const response =
+            await fetch(
+                WORKER_URL + "/support/create",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        customer_name: name
+                    })
+                }
+            );
+
+        const result =
+            await response.json();
+
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Unable to create conversation."
+            );
+        }
+
+
+        currentCode =
+            result.support_code;
+
+        currentName =
+            name;
+
+
+        document
+            .getElementById("new-code")
+            .textContent =
+                currentCode;
+
+        document
+            .getElementById("new-code-box")
+            .style.display =
+                "block";
+
+
+        localStorage.setItem(
+            "hyprix-support-code",
+            currentCode
+        );
+
+
+        setTimeout(
+            () => openChat(
+                currentCode,
+                currentName
+            ),
+            1200
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showError(
+            error === null
+                ? document.getElementById("start-error")
+                : document.getElementById("start-error"),
+            error.message ||
+                "Unable to connect to HyPrix Support."
+        );
+
+    }
+
+
+    button.disabled = false;
+    button.textContent =
+        "Start Support Chat";
+}
+
+
+async function continueConversation() {
+
+    const code =
+        document
+            .getElementById(
+                "existing-code"
+            )
+            .value
+            .trim()
+            .toUpperCase();
+
+    const error =
+        document.getElementById(
+            "continue-error"
+        );
+
+    hideError(error);
+
+    if (!code) {
+
+        showError(
+            error,
+            "Please enter your support code."
+        );
+
+        return;
+    }
+
+
+    const button =
+        document.getElementById(
+            "continue-button"
+        );
+
+    button.disabled = true;
+    button.textContent =
+        "Checking...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/support/get?code=" +
+                encodeURIComponent(code)
+            );
+
+        const result =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Conversation not found."
+            );
+        }
+
+
+        currentCode =
+            code;
+
+        currentName =
+            result.conversation.customer_name;
+
+
+        localStorage.setItem(
+            "hyprix-support-code",
+            currentCode
+        );
+
+
+        openChat(
+            currentCode,
+            currentName
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showError(
+            error,
+            error.message ||
+                "Conversation not found."
+        );
+
+    }
+
+
+    button.disabled = false;
+    button.textContent =
+        "Continue";
+}
+
+
+async function openChat(code, name) {
+
+    currentCode = code;
+    currentName = name;
+
+
+    startSection.style.display =
+        "none";
+
+    chatSection.style.display =
+        "block";
+
+
     document
-        .getElementById("start-button")
-        .addEventListener("click", function () {
+        .getElementById("customer-name")
+        .textContent =
+            name;
 
-            const name =
-                document
-                    .getElementById("name")
-                    .value
-                    .trim();
 
-            if (!name) {
-                alert("Please enter your name.");
-                return;
+    document
+        .getElementById("chat-code")
+        .textContent =
+            "Support code: " + code;
+
+
+    await loadMessages();
+
+
+    if (refreshTimer) {
+        clearInterval(refreshTimer);
+    }
+
+
+    refreshTimer =
+        setInterval(
+            loadMessages,
+            5000
+        );
+}
+
+
+async function loadMessages() {
+
+    if (!currentCode)
+        return;
+
+
+    try {
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/support/get?code=" +
+                encodeURIComponent(
+                    currentCode
+                )
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            return;
+        }
+
+
+        const messages =
+            document.getElementById(
+                "messages"
+            );
+
+
+        messages.innerHTML = "";
+
+
+        (result.messages || [])
+            .forEach(message => {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "message " +
+                    (
+                        message.sender ===
+                        "customer"
+                            ? "customer"
+                            : "admin"
+                    );
+
+
+                div.innerHTML = `
+                    <div class="message-label">
+                        ${
+                            message.sender ===
+                            "customer"
+                                ? "You"
+                                : "HyPrix Support"
+                        }
+                    </div>
+
+                    <div>
+                        ${escapeHtml(
+                            message.message
+                        )}
+                    </div>
+
+                    <div class="message-time">
+                        ${new Date(
+                            message.created_at
+                        ).toLocaleString()}
+                    </div>
+                `;
+
+
+                messages.appendChild(div);
+
+            });
+
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+
+        const closed =
+            result.conversation.status ===
+            "closed";
+
+
+        document
+            .getElementById(
+                "closed-message"
+            )
+            .style.display =
+                closed
+                    ? "block"
+                    : "none";
+
+
+        document
+            .getElementById(
+                "chat-input-area"
+            )
+            .style.display =
+                closed
+                    ? "none"
+                    : "flex";
+
+
+        document
+            .getElementById(
+                "chat-status"
+            )
+            .textContent =
+                closed
+                    ? "Conversation closed"
+                    : "Connected to HyPrix Support";
+
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+}
+
+
+async function sendMessage() {
+
+    if (!currentCode)
+        return;
+
+
+    const input =
+        document.getElementById(
+            "chat-input"
+        );
+
+
+    const message =
+        input.value.trim();
+
+
+    if (!message)
+        return;
+
+
+    const button =
+        document.getElementById(
+            "send-button"
+        );
+
+
+    button.disabled = true;
+    button.textContent =
+        "Sending...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/support/message",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        support_code:
+                            currentCode,
+
+                        message:
+                            message
+                    })
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Unable to send message."
+            );
+        }
+
+
+        input.value = "";
+
+        await loadMessages();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            error.message ||
+            "Unable to send message."
+        );
+
+    }
+
+
+    button.disabled = false;
+    button.textContent =
+        "Send";
+}
+
+
+document
+    .getElementById("start-button")
+    .addEventListener(
+        "click",
+        createConversation
+    );
+
+
+document
+    .getElementById("continue-button")
+    .addEventListener(
+        "click",
+        continueConversation
+    );
+
+
+document
+    .getElementById("send-button")
+    .addEventListener(
+        "click",
+        sendMessage
+    );
+
+
+document
+    .getElementById("chat-input")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
+
+                event.preventDefault();
+
+                sendMessage();
+            }
+        }
+    );
+
+
+document
+    .getElementById("back-button")
+    .addEventListener(
+        "click",
+        function() {
+
+            if (refreshTimer) {
+                clearInterval(
+                    refreshTimer
+                );
             }
 
-            /*
-             * The real support system will be
-             * connected here next.
-             */
+            chatSection.style.display =
+                "none";
 
-            alert(
-                "Support chat is being connected. " +
-                "The backend will be added next."
-            );
-        });
+            startSection.style.display =
+                "block";
+
+            currentCode = null;
+            currentName = null;
+        }
+    );
+
 </script>
 
 </body>
