@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HyPrix Support</title>
+
+    <link rel="icon" type="image/png" href="./HyPrix.png">
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        .support-container {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 20px;
+        }
+
+        .support-box {
+            background: rgba(8, 20, 45, 0.75);
+            border: 1px solid rgba(80, 150, 255, 0.2);
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 0 35px rgba(0, 100, 255, 0.12);
+            backdrop-filter: blur(15px);
+        }
+
+        .support-box h1 {
+            margin-bottom: 10px;
+        }
+
+        .support-box > p {
+            color: #aab8d4;
+            margin-bottom: 30px;
+        }
+
+        .support-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 17px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 160, 255, 0.25);
+            background: rgba(0, 10, 30, 0.65);
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .support-input:focus {
+            border-color: rgba(80, 150, 255, 0.8);
+            box-shadow: 0 0 15px rgba(50, 120, 255, 0.15);
+        }
+
+        .support-button {
+            border: none;
+            padding: 14px 22px;
+            border-radius: 12px;
+            background: #1677ff;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .support-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(20, 110, 255, 0.3);
+        }
+
+        .support-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #7182a5;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #78adff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img
+            src="./HyPrix.png"
+            alt="HyPrix"
+            height="40"
+        >
+    </div>
+
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./index.html#apps">Apps</a>
+        <a href="./index.html#games">Games</a>
+        <a href="./index.html#about">About</a>
+    </nav>
+</header>
+
+<main class="support-container">
+
+    <div class="support-box">
+
+        <h1>HyPrix Support</h1>
+
+        <p>
+            Need help with a HyPrix app, game, or website?
+            Start a conversation with our support team.
+        </p>
+
+        <input
+            id="name"
+            class="support-input"
+            type="text"
+            placeholder="Your name"
+            maxlength="40"
+            autocomplete="off"
+        >
+
+        <button
+            id="start-button"
+            class="support-button"
+            type="button"
+        >
+            Start Support Chat
+        </button>
+
+        <div class="support-note">
+            No email is required. Your conversation will receive
+            a unique HyPrix support code.
+        </div>
+
+        <a
+            href="./index.html"
+            class="back-link"
+        >
+            ← Back to HyPrix
+        </a>
+
+    </div>
+
+</main>
+
+<script>
+    document
+        .getElementById("start-button")
+        .addEventListener("click", function () {
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            if (!name) {
+                alert("Please enter your name.");
+                return;
+            }
+
+            /*
+             * The real support system will be connected here
+             * in the next step.
+             */
+
+            alert(
+                "Support chat is being connected. " +
+                "The backend will be added next."
+            );
+        });
+</script>
+
+</body>
+</html>
