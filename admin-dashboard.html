@@ -80,14 +80,17 @@
             background: rgba(20, 40, 75, 0.6);
             border: 1px solid transparent;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .conversation:hover {
             border-color: rgba(80, 150, 255, 0.4);
+            transform: translateY(-1px);
         }
 
         .conversation.active {
             border-color: #1677ff;
+            box-shadow: 0 0 15px rgba(22, 119, 255, 0.15);
         }
 
         .conversation-name {
@@ -146,6 +149,7 @@
             padding: 12px 15px;
             border-radius: 14px;
             line-height: 1.4;
+            word-wrap: break-word;
         }
 
         .message.customer {
@@ -190,6 +194,11 @@
             font-family: inherit;
         }
 
+        .reply-input:focus {
+            border-color: rgba(80, 150, 255, 0.8);
+            box-shadow: 0 0 15px rgba(50, 120, 255, 0.15);
+        }
+
         .reply-button {
             border: none;
             padding: 13px 20px;
@@ -198,6 +207,15 @@
             color: white;
             font-weight: 600;
             cursor: pointer;
+        }
+
+        .reply-button:hover {
+            box-shadow: 0 8px 25px rgba(20, 110, 255, 0.3);
+        }
+
+        .reply-button:disabled {
+            opacity: 0.7;
+            cursor: wait;
         }
 
         .close-button {
@@ -210,8 +228,22 @@
             margin-top: 10px;
         }
 
+        .close-button:hover {
+            background: rgba(120, 25, 35, 0.45);
+        }
+
         .loading {
             color: #8fa3c9;
+        }
+
+        .dashboard-error {
+            margin-bottom: 20px;
+            padding: 13px 16px;
+            border-radius: 12px;
+            background: rgba(255, 50, 70, 0.1);
+            border: 1px solid rgba(255, 50, 70, 0.2);
+            color: #ff8995;
+            display: none;
         }
 
         @media (max-width: 800px) {
@@ -235,7 +267,11 @@
 
 <header>
     <div class="logo">
-        <img src="./HyPrix.png" alt="HyPrix" height="40">
+        <img
+            src="./HyPrix.png"
+            alt="HyPrix"
+            height="40"
+        >
     </div>
 
     <nav>
@@ -244,12 +280,23 @@
     </nav>
 </header>
 
+
 <main class="dashboard-container">
 
+    <div
+        id="dashboard-error"
+        class="dashboard-error"
+    ></div>
+
+
     <div class="dashboard-header">
+
         <div>
             <h1>Support Dashboard</h1>
-            <p>Manage HyPrix customer conversations.</p>
+
+            <p>
+                Manage HyPrix customer conversations.
+            </p>
         </div>
 
         <button
@@ -258,9 +305,13 @@
         >
             Logout
         </button>
+
     </div>
 
+
     <div class="dashboard-grid">
+
+        <!-- CONVERSATIONS -->
 
         <div class="panel">
 
@@ -277,29 +328,39 @@
 
         </div>
 
+
+        <!-- CHAT -->
+
         <div class="panel chat">
 
             <div
                 id="chat-header"
                 class="chat-header"
             >
-                <h2>Select a conversation</h2>
+
+                <h2>
+                    Select a conversation
+                </h2>
+
                 <span>
                     Choose a customer from the list.
                 </span>
+
             </div>
+
 
             <div
                 id="messages"
                 class="messages"
-            >
-            </div>
+            ></div>
+
 
             <div
                 id="reply-area"
                 class="reply-area"
                 style="display:none;"
             >
+
                 <textarea
                     id="reply-input"
                     class="reply-input"
@@ -312,7 +373,9 @@
                 >
                     Send
                 </button>
+
             </div>
+
 
             <button
                 id="close-button"
@@ -328,47 +391,166 @@
 
 </main>
 
+
 <script>
 
 const WORKER_URL =
     "https://hyprix-support.blueprixsupport.workers.dev";
 
+
+/* =========================
+   ADMIN SESSION
+========================= */
+
 const session =
-    sessionStorage.getItem("hyprix-admin-session");
+    sessionStorage.getItem(
+        "hyprix-admin-session"
+    );
+
 
 if (!session) {
-    window.location.href = "./admin.html";
+
+    window.location.replace(
+        "./admin.html"
+    );
+
 }
+
+
+/* =========================
+   STATE
+========================= */
 
 let selectedConversation = null;
 
-async function api(path, options = {}) {
 
-    options.headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + session,
-        ...(options.headers || {})
-    };
+/* =========================
+   ERROR DISPLAY
+========================= */
 
-    const response =
-        await fetch(
-            WORKER_URL + path,
-            options
+function showError(message) {
+
+    const box =
+        document.getElementById(
+            "dashboard-error"
         );
 
+    box.textContent = message;
+
+    box.style.display = "block";
+
+}
+
+
+/* =========================
+   API
+========================= */
+
+async function api(
+    path,
+    options = {}
+) {
+
+    options.headers = {
+
+        "Content-Type":
+            "application/json",
+
+        "Authorization":
+            "Bearer " + session,
+
+        ...(options.headers || {})
+
+    };
+
+
+    let response;
+
+    try {
+
+        response =
+            await fetch(
+                WORKER_URL + path,
+                options
+            );
+
+    } catch (error) {
+
+        console.error(
+            "API connection error:",
+            error
+        );
+
+        showError(
+            "Unable to connect to the support server."
+        );
+
+        return null;
+
+    }
+
+
     if (response.status === 401) {
+
         sessionStorage.removeItem(
             "hyprix-admin-session"
         );
 
-        window.location.href = "./admin.html";
+        window.location.replace(
+            "./admin.html"
+        );
 
         return null;
+
     }
 
-    return response.json();
+
+    let data;
+
+    try {
+
+        data =
+            await response.json();
+
+    } catch (error) {
+
+        console.error(
+            "Invalid server response:",
+            error
+        );
+
+        showError(
+            "The support server returned an invalid response."
+        );
+
+        return null;
+
+    }
+
+
+    if (!response.ok) {
+
+        console.error(
+            "API error:",
+            data
+        );
+
+        showError(
+            data.error ||
+            "The server returned an error."
+        );
+
+    }
+
+
+    return data;
+
 }
 
+
+/* =========================
+   LOAD CONVERSATIONS
+========================= */
 
 async function loadConversations() {
 
@@ -377,120 +559,222 @@ async function loadConversations() {
             "conversation-list"
         );
 
-    try {
 
-        const result =
-            await api(
-                "/admin/conversations"
-            );
+    list.innerHTML =
+        '<div class="loading">Loading conversations...</div>';
 
-        if (!result) return;
-
-        list.innerHTML = "";
-
-        if (
-            !result.conversations ||
-            result.conversations.length === 0
-        ) {
-            list.innerHTML =
-                '<div class="empty">No conversations yet.</div>';
-
-            return;
-        }
-
-        result.conversations.forEach(
-            conversation => {
-
-                const item =
-                    document.createElement("div");
-
-                item.className =
-                    "conversation";
-
-                item.innerHTML = `
-                    <div class="conversation-name">
-                        ${escapeHtml(conversation.customer_name)}
-                    </div>
-
-                    <div class="conversation-code">
-                        ${escapeHtml(conversation.support_code)}
-                    </div>
-
-                    <div class="conversation-status">
-                        ${escapeHtml(conversation.status)}
-                    </div>
-                `;
-
-                item.addEventListener(
-                    "click",
-                    () => {
-
-                        document
-                            .querySelectorAll(".conversation")
-                            .forEach(
-                                el =>
-                                    el.classList.remove("active")
-                            );
-
-                        item.classList.add("active");
-
-                        openConversation(
-                            conversation.id
-                        );
-                    }
-                );
-
-                list.appendChild(item);
-            }
-        );
-
-    } catch (error) {
-
-        list.innerHTML =
-            '<div class="empty">Unable to load conversations.</div>';
-    }
-}
-
-
-async function openConversation(id) {
-
-    selectedConversation = id;
 
     const result =
         await api(
-            "/admin/conversation?id=" +
-            encodeURIComponent(id)
+            "/admin/conversations"
         );
 
-    if (!result) return;
+
+    if (!result) {
+        return;
+    }
+
+
+    if (
+        !result.success
+    ) {
+
+        list.innerHTML =
+            '<div class="empty">Unable to load conversations.</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    if (
+        !result.conversations ||
+        result.conversations.length === 0
+    ) {
+
+        list.innerHTML =
+            '<div class="empty">No conversations yet.</div>';
+
+        return;
+
+    }
+
+
+    result.conversations.forEach(
+        conversation => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "conversation";
+
+
+            item.innerHTML = `
+
+                <div class="conversation-name">
+                    ${escapeHtml(
+                        conversation.customer_name
+                    )}
+                </div>
+
+                <div class="conversation-code">
+                    ${escapeHtml(
+                        conversation.support_code
+                    )}
+                </div>
+
+                <div class="conversation-status">
+                    ${escapeHtml(
+                        conversation.status
+                    )}
+                </div>
+
+            `;
+
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(
+                            ".conversation"
+                        )
+                        .forEach(
+                            el =>
+                                el.classList.remove(
+                                    "active"
+                                )
+                        );
+
+
+                    item.classList.add(
+                        "active"
+                    );
+
+
+                    openConversation(
+                        conversation.id
+                    );
+
+                }
+            );
+
+
+            list.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   OPEN CONVERSATION
+========================= */
+
+async function openConversation(
+    id
+) {
+
+    selectedConversation =
+        id;
+
+
+    const result =
+        await api(
+            "/admin/conversation",
+            {
+                method: "POST",
+
+                body: JSON.stringify({
+
+                    id: id
+
+                })
+            }
+        );
+
+
+    if (!result) {
+        return;
+    }
+
+
+    if (
+        !result.success
+    ) {
+
+        showError(
+            result.error ||
+            "Unable to open conversation."
+        );
+
+        return;
+
+    }
+
 
     const conversation =
         result.conversation;
 
+
     document
-        .getElementById("chat-header")
+        .getElementById(
+            "chat-header"
+        )
         .innerHTML = `
+
             <h2>
-                ${escapeHtml(conversation.customer_name)}
+                ${escapeHtml(
+                    conversation.customer_name
+                )}
             </h2>
 
             <span>
-                ${escapeHtml(conversation.support_code)}
+                ${escapeHtml(
+                    conversation.support_code
+                )}
+
                 •
-                ${escapeHtml(conversation.status)}
+
+                ${escapeHtml(
+                    conversation.status
+                )}
             </span>
+
         `;
 
+
     const messages =
-        document.getElementById("messages");
+        document.getElementById(
+            "messages"
+        );
+
 
     messages.innerHTML = "";
 
-    (result.messages || []).forEach(
+
+    (
+        result.messages ||
+        []
+    ).forEach(
         message => {
 
             const div =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             div.className =
                 "message " +
@@ -500,13 +784,23 @@ async function openConversation(id) {
                         : "customer"
                 );
 
+
             div.innerHTML = `
+
                 <div class="message-label">
-                    ${message.sender === "admin" ? "You" : escapeHtml(conversation.customer_name)}
+                    ${
+                        message.sender === "admin"
+                            ? "You"
+                            : escapeHtml(
+                                conversation.customer_name
+                            )
+                    }
                 </div>
 
                 <div>
-                    ${escapeHtml(message.message)}
+                    ${escapeHtml(
+                        message.message
+                    )}
                 </div>
 
                 <div class="message-time">
@@ -514,51 +808,88 @@ async function openConversation(id) {
                         message.created_at
                     ).toLocaleString()}
                 </div>
+
             `;
 
-            messages.appendChild(div);
+
+            messages.appendChild(
+                div
+            );
+
         }
     );
+
 
     messages.scrollTop =
         messages.scrollHeight;
 
+
     const isOpen =
         conversation.status === "open";
 
-    document
-        .getElementById("reply-area")
-        .style.display =
-            isOpen ? "flex" : "none";
 
     document
-        .getElementById("close-button")
+        .getElementById(
+            "reply-area"
+        )
         .style.display =
-            isOpen ? "block" : "none";
+            isOpen
+                ? "flex"
+                : "none";
+
+
+    document
+        .getElementById(
+            "close-button"
+        )
+        .style.display =
+            isOpen
+                ? "block"
+                : "none";
+
 }
 
 
+/* =========================
+   SEND ADMIN REPLY
+========================= */
+
 document
-    .getElementById("reply-button")
+    .getElementById(
+        "reply-button"
+    )
     .addEventListener(
         "click",
         async function () {
 
-            if (!selectedConversation)
+            if (
+                !selectedConversation
+            ) {
                 return;
+            }
+
 
             const input =
                 document.getElementById(
                     "reply-input"
                 );
 
+
             const message =
                 input.value.trim();
 
-            if (!message)
-                return;
 
-            this.disabled = true;
+            if (!message) {
+                return;
+            }
+
+
+            this.disabled =
+                true;
+
+            this.textContent =
+                "Sending...";
+
 
             const result =
                 await api(
@@ -566,39 +897,81 @@ document
                     {
                         method: "POST",
 
-                        body: JSON.stringify({
-                            conversation_id:
-                                selectedConversation,
+                        body:
+                            JSON.stringify({
 
-                            message: message
-                        })
+                                id:
+                                    selectedConversation,
+
+                                message:
+                                    message
+
+                            })
                     }
                 );
 
-            this.disabled = false;
 
-            if (result && result.success) {
+            this.disabled =
+                false;
+
+            this.textContent =
+                "Send";
+
+
+            if (
+                result &&
+                result.success
+            ) {
 
                 input.value = "";
+
 
                 await openConversation(
                     selectedConversation
                 );
 
+
                 await loadConversations();
+
             }
+
         }
     );
 
 
+/* =========================
+   CLOSE CONVERSATION
+========================= */
+
 document
-    .getElementById("close-button")
+    .getElementById(
+        "close-button"
+    )
     .addEventListener(
         "click",
         async function () {
 
-            if (!selectedConversation)
+            if (
+                !selectedConversation
+            ) {
                 return;
+            }
+
+
+            const confirmed =
+                confirm(
+                    "Close this conversation?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            this.disabled =
+                true;
+
 
             const result =
                 await api(
@@ -606,27 +979,47 @@ document
                     {
                         method: "POST",
 
-                        body: JSON.stringify({
-                            conversation_id:
-                                selectedConversation
-                        })
+                        body:
+                            JSON.stringify({
+
+                                id:
+                                    selectedConversation
+
+                            })
                     }
                 );
 
-            if (result && result.success) {
+
+            this.disabled =
+                false;
+
+
+            if (
+                result &&
+                result.success
+            ) {
 
                 await openConversation(
                     selectedConversation
                 );
 
+
                 await loadConversations();
+
             }
+
         }
     );
 
 
+/* =========================
+   LOGOUT
+========================= */
+
 document
-    .getElementById("logout-button")
+    .getElementById(
+        "logout-button"
+    )
     .addEventListener(
         "click",
         function () {
@@ -635,22 +1028,56 @@ document
                 "hyprix-admin-session"
             );
 
-            window.location.href =
-                "./admin.html";
+
+            window.location.replace(
+                "./admin.html"
+            );
+
         }
     );
 
 
-function escapeHtml(value) {
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(
+    value
+) {
 
     return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
 }
 
+
+/* =========================
+   START DASHBOARD
+========================= */
 
 loadConversations();
 
