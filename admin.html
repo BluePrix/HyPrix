@@ -154,9 +154,7 @@
         <div
             id="admin-error"
             class="admin-error"
-        >
-            Invalid admin code.
-        </div>
+        ></div>
 
         <div class="admin-note">
             Authorized HyPrix administrators only.
@@ -234,24 +232,40 @@ document
                 const result =
                     await response.json();
 
+                console.log(
+                    "Admin login response:",
+                    result
+                );
+
                 if (
                     response.ok &&
                     result.success &&
                     result.session
                 ) {
 
-                    /*
-                     * Store the temporary admin
-                     * session in this browser.
-                     *
-                     * The actual admin code is
-                     * NEVER stored here.
-                     */
-
                     sessionStorage.setItem(
                         "hyprix-admin-session",
                         result.session
                     );
+
+                    const savedSession =
+                        sessionStorage.getItem(
+                            "hyprix-admin-session"
+                        );
+
+                    if (!savedSession) {
+
+                        error.textContent =
+                            "The browser could not save the admin session.";
+
+                        error.style.display =
+                            "block";
+
+                        button.disabled = false;
+                        button.textContent = "Login";
+
+                        return;
+                    }
 
                     window.location.href =
                         "./admin-dashboard.html";
@@ -260,6 +274,7 @@ document
                 }
 
                 error.textContent =
+                    result.error ||
                     "Invalid admin code.";
 
                 error.style.display =
@@ -267,7 +282,10 @@ document
 
             } catch (err) {
 
-                console.error(err);
+                console.error(
+                    "Admin login error:",
+                    err
+                );
 
                 error.textContent =
                     "Unable to connect to the support server.";
