@@ -1,3 +1,4 @@
+```javascript
 /* =========================================
    HyPrix Language System
    ========================================= */
@@ -16,73 +17,29 @@ const translations = {
         hero2: "Games.",
         hero3: "Built different.",
 
-        heroText:
-            "Welcome to HyPrix — the home of our apps, games and digital projects.",
+        heroText: "Welcome to HyPrix — the home of our apps, games and digital projects.",
 
-        explore:
-            "Explore Projects →",
+        explore: "Explore Projects →",
 
-        whatWeMake:
-            "WHAT WE MAKE",
+        whatWeMake: "WHAT WE MAKE",
+        ourApps: "Our Apps",
 
-        ourApps:
-            "Our Apps",
+        moreApps: "More Apps",
+        moreAppsDescription: "New HyPrix projects are currently being developed.",
+        inDevelopment: "IN DEVELOPMENT",
 
-        availableNow:
-            "AVAILABLE NOW",
+        playSomething: "PLAY SOMETHING NEW",
+        ourGames: "Our Games",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "COMING SOON",
+        gamesTitle: "Games are on the way.",
+        gamesDescription: "We're working on new experiences. Check back soon for releases.",
 
-        weatherDescription:
-            "A simple and modern weather app built by HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "A simple and modern calculator built by HyPrix.",
-
-        download:
-            "Download",
-
-        moreApps:
-            "More Apps",
-
-        moreAppsDescription:
-            "New HyPrix projects are currently being developed.",
-
-        inDevelopment:
-            "IN DEVELOPMENT",
-
-        playSomething:
-            "PLAY SOMETHING NEW",
-
-        ourGames:
-            "Our Games",
-
-        comingSoon:
-            "COMING SOON",
-
-        gamesTitle:
-            "Games are on the way.",
-
-        gamesDescription:
-            "We're working on new experiences. Check back soon for releases.",
-
-        aboutHyprix:
-            "ABOUT HyPrix",
-
-        aboutTitle:
-            "We make things",
-
-        aboutTitle2:
-            "worth downloading.",
-
-        aboutDescription:
-            "HyPrix creates apps, games and digital projects designed to be simple, useful and fun."
+        aboutHyprix: "ABOUT HyPrix",
+        aboutTitle: "We make things",
+        aboutTitle2: "worth downloading.",
+        aboutDescription: "HyPrix creates apps, games and digital projects designed to be simple, useful and fun."
     },
-
 
     es: {
         home: "Inicio",
@@ -96,73 +53,29 @@ const translations = {
         hero2: "Juegos.",
         hero3: "Hecho diferente.",
 
-        heroText:
-            "Bienvenido a HyPrix — el hogar de nuestras aplicaciones, juegos y proyectos digitales.",
+        heroText: "Bienvenido a HyPrix — el hogar de nuestras aplicaciones, juegos y proyectos digitales.",
 
-        explore:
-            "Explorar proyectos →",
+        explore: "Explorar proyectos →",
 
-        whatWeMake:
-            "LO QUE HACEMOS",
+        whatWeMake: "LO QUE HACEMOS",
+        ourApps: "Nuestras aplicaciones",
 
-        ourApps:
-            "Nuestras aplicaciones",
+        moreApps: "Más aplicaciones",
+        moreAppsDescription: "Actualmente estamos desarrollando nuevos proyectos de HyPrix.",
+        inDevelopment: "EN DESARROLLO",
 
-        availableNow:
-            "DISPONIBLE AHORA",
+        playSomething: "JUEGA A ALGO NUEVO",
+        ourGames: "Nuestros juegos",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "PRÓXIMAMENTE",
+        gamesTitle: "Los juegos están en camino.",
+        gamesDescription: "Estamos trabajando en nuevas experiencias. Vuelve pronto para conocer los lanzamientos.",
 
-        weatherDescription:
-            "Una aplicación del clima sencilla y moderna creada por HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Una calculadora sencilla y moderna creada por HyPrix.",
-
-        download:
-            "Descargar",
-
-        moreApps:
-            "Más aplicaciones",
-
-        moreAppsDescription:
-            "Actualmente estamos desarrollando nuevos proyectos de HyPrix.",
-
-        inDevelopment:
-            "EN DESARROLLO",
-
-        playSomething:
-            "JUEGA A ALGO NUEVO",
-
-        ourGames:
-            "Nuestros juegos",
-
-        comingSoon:
-            "PRÓXIMAMENTE",
-
-        gamesTitle:
-            "Los juegos están en camino.",
-
-        gamesDescription:
-            "Estamos trabajando en nuevas experiencias. Vuelve pronto para conocer los lanzamientos.",
-
-        aboutHyprix:
-            "ACERCA DE HyPrix",
-
-        aboutTitle:
-            "Creamos cosas",
-
-        aboutTitle2:
-            "que vale la pena descargar.",
-
-        aboutDescription:
-            "HyPrix crea aplicaciones, juegos y proyectos digitales diseñados para ser simples, útiles y divertidos."
+        aboutHyprix: "ACERCA DE HyPrix",
+        aboutTitle: "Creamos cosas",
+        aboutTitle2: "que vale la pena descargar.",
+        aboutDescription: "HyPrix crea aplicaciones, juegos y proyectos digitales diseñados para ser simples, útiles y divertidos."
     },
-
 
     fr: {
         home: "Accueil",
@@ -176,73 +89,29 @@ const translations = {
         hero2: "Jeux.",
         hero3: "Fait différemment.",
 
-        heroText:
-            "Bienvenue chez HyPrix — le foyer de nos applications, jeux et projets numériques.",
+        heroText: "Bienvenue chez HyPrix — le foyer de nos applications, jeux et projets numériques.",
 
-        explore:
-            "Explorer les projets →",
+        explore: "Explorer les projets →",
 
-        whatWeMake:
-            "CE QUE NOUS CRÉONS",
+        whatWeMake: "CE QUE NOUS CRÉONS",
+        ourApps: "Nos applications",
 
-        ourApps:
-            "Nos applications",
+        moreApps: "Plus d'applications",
+        moreAppsDescription: "De nouveaux projets HyPrix sont actuellement en développement.",
+        inDevelopment: "EN DÉVELOPPEMENT",
 
-        availableNow:
-            "DISPONIBLE",
+        playSomething: "JOUEZ À QUELQUE CHOSE DE NOUVEAU",
+        ourGames: "Nos jeux",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "BIENTÔT DISPONIBLE",
+        gamesTitle: "Les jeux arrivent.",
+        gamesDescription: "Nous travaillons sur de nouvelles expériences. Revenez bientôt pour découvrir les sorties.",
 
-        weatherDescription:
-            "Une application météo simple et moderne créée par HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Une calculatrice simple et moderne créée par HyPrix.",
-
-        download:
-            "Télécharger",
-
-        moreApps:
-            "Plus d'applications",
-
-        moreAppsDescription:
-            "De nouveaux projets HyPrix sont actuellement en développement.",
-
-        inDevelopment:
-            "EN DÉVELOPPEMENT",
-
-        playSomething:
-            "JOUEZ À QUELQUE CHOSE DE NOUVEAU",
-
-        ourGames:
-            "Nos jeux",
-
-        comingSoon:
-            "BIENTÔT DISPONIBLE",
-
-        gamesTitle:
-            "Les jeux arrivent.",
-
-        gamesDescription:
-            "Nous travaillons sur de nouvelles expériences. Revenez bientôt pour découvrir les sorties.",
-
-        aboutHyprix:
-            "À PROPOS DE HyPrix",
-
-        aboutTitle:
-            "Nous créons des choses",
-
-        aboutTitle2:
-            "qui valent le téléchargement.",
-
-        aboutDescription:
-            "HyPrix crée des applications, des jeux et des projets numériques conçus pour être simples, utiles et amusants."
+        aboutHyprix: "À PROPOS DE HyPrix",
+        aboutTitle: "Nous créons des choses",
+        aboutTitle2: "qui valent le téléchargement.",
+        aboutDescription: "HyPrix crée des applications, des jeux et des projets numériques conçus pour être simples, utiles et amusants."
     },
-
 
     de: {
         home: "Startseite",
@@ -256,73 +125,29 @@ const translations = {
         hero2: "Spiele.",
         hero3: "Anders gemacht.",
 
-        heroText:
-            "Willkommen bei HyPrix — der Heimat unserer Apps, Spiele und digitalen Projekte.",
+        heroText: "Willkommen bei HyPrix — der Heimat unserer Apps, Spiele und digitalen Projekte.",
 
-        explore:
-            "Projekte entdecken →",
+        explore: "Projekte entdecken →",
 
-        whatWeMake:
-            "WAS WIR MACHEN",
+        whatWeMake: "WAS WIR MACHEN",
+        ourApps: "Unsere Apps",
 
-        ourApps:
-            "Unsere Apps",
+        moreApps: "Weitere Apps",
+        moreAppsDescription: "Neue HyPrix-Projekte befinden sich derzeit in Entwicklung.",
+        inDevelopment: "IN ENTWICKLUNG",
 
-        availableNow:
-            "JETZT VERFÜGBAR",
+        playSomething: "SPIELE ETWAS NEUES",
+        ourGames: "Unsere Spiele",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "BALD VERFÜGBAR",
+        gamesTitle: "Spiele sind unterwegs.",
+        gamesDescription: "Wir arbeiten an neuen Erlebnissen. Schau bald wieder vorbei.",
 
-        weatherDescription:
-            "Eine einfache und moderne Wetter-App von HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Ein einfacher und moderner Taschenrechner von HyPrix.",
-
-        download:
-            "Herunterladen",
-
-        moreApps:
-            "Weitere Apps",
-
-        moreAppsDescription:
-            "Neue HyPrix-Projekte befinden sich derzeit in Entwicklung.",
-
-        inDevelopment:
-            "IN ENTWICKLUNG",
-
-        playSomething:
-            "SPIELE ETWAS NEUES",
-
-        ourGames:
-            "Unsere Spiele",
-
-        comingSoon:
-            "BALD VERFÜGBAR",
-
-        gamesTitle:
-            "Spiele sind unterwegs.",
-
-        gamesDescription:
-            "Wir arbeiten an neuen Erlebnissen. Schau bald wieder vorbei.",
-
-        aboutHyprix:
-            "ÜBER HyPrix",
-
-        aboutTitle:
-            "Wir entwickeln Dinge",
-
-        aboutTitle2:
-            "die sich zu downloaden lohnen.",
-
-        aboutDescription:
-            "HyPrix entwickelt Apps, Spiele und digitale Projekte, die einfach, nützlich und unterhaltsam sind."
+        aboutHyprix: "ÜBER HyPrix",
+        aboutTitle: "Wir entwickeln Dinge",
+        aboutTitle2: "die sich zu downloaden lohnen.",
+        aboutDescription: "HyPrix entwickelt Apps, Spiele und digitale Projekte, die einfach, nützlich und unterhaltsam sind."
     },
-
 
     pt: {
         home: "Início",
@@ -336,73 +161,29 @@ const translations = {
         hero2: "Jogos.",
         hero3: "Feito diferente.",
 
-        heroText:
-            "Bem-vindo à HyPrix — o lar dos nossos aplicativos, jogos e projetos digitais.",
+        heroText: "Bem-vindo à HyPrix — o lar dos nossos aplicativos, jogos e projetos digitais.",
 
-        explore:
-            "Explorar projetos →",
+        explore: "Explorar projetos →",
 
-        whatWeMake:
-            "O QUE FAZEMOS",
+        whatWeMake: "O QUE FAZEMOS",
+        ourApps: "Nossos aplicativos",
 
-        ourApps:
-            "Nossos aplicativos",
+        moreApps: "Mais aplicativos",
+        moreAppsDescription: "Novos projetos da HyPrix estão atualmente em desenvolvimento.",
+        inDevelopment: "EM DESENVOLVIMENTO",
 
-        availableNow:
-            "DISPONÍVEL AGORA",
+        playSomething: "JOGUE ALGO NOVO",
+        ourGames: "Nossos jogos",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "EM BREVE",
+        gamesTitle: "Os jogos estão a caminho.",
+        gamesDescription: "Estamos trabalhando em novas experiências. Volte em breve para conferir os lançamentos.",
 
-        weatherDescription:
-            "Um aplicativo de clima simples e moderno criado pela HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Uma calculadora simples e moderna criada pela HyPrix.",
-
-        download:
-            "Baixar",
-
-        moreApps:
-            "Mais aplicativos",
-
-        moreAppsDescription:
-            "Novos projetos da HyPrix estão atualmente em desenvolvimento.",
-
-        inDevelopment:
-            "EM DESENVOLVIMENTO",
-
-        playSomething:
-            "JOGUE ALGO NOVO",
-
-        ourGames:
-            "Nossos jogos",
-
-        comingSoon:
-            "EM BREVE",
-
-        gamesTitle:
-            "Os jogos estão a caminho.",
-
-        gamesDescription:
-            "Estamos trabalhando em novas experiências. Volte em breve para conferir os lançamentos.",
-
-        aboutHyprix:
-            "SOBRE A HyPrix",
-
-        aboutTitle:
-            "Criamos coisas",
-
-        aboutTitle2:
-            "que valem a pena baixar.",
-
-        aboutDescription:
-            "A HyPrix cria aplicativos, jogos e projetos digitais simples, úteis e divertidos."
+        aboutHyprix: "SOBRE A HyPrix",
+        aboutTitle: "Criamos coisas",
+        aboutTitle2: "que valem a pena baixar.",
+        aboutDescription: "A HyPrix cria aplicativos, jogos e projetos digitais simples, úteis e divertidos."
     },
-
 
     it: {
         home: "Home",
@@ -416,73 +197,29 @@ const translations = {
         hero2: "Giochi.",
         hero3: "Fatti diversamente.",
 
-        heroText:
-            "Benvenuto su HyPrix — la casa delle nostre app, giochi e progetti digitali.",
+        heroText: "Benvenuto su HyPrix — la casa delle nostre app, giochi e progetti digitali.",
 
-        explore:
-            "Esplora i progetti →",
+        explore: "Esplora i progetti →",
 
-        whatWeMake:
-            "COSA FACCIAMO",
+        whatWeMake: "COSA FACCIAMO",
+        ourApps: "Le nostre app",
 
-        ourApps:
-            "Le nostre app",
+        moreApps: "Altre app",
+        moreAppsDescription: "Nuovi progetti HyPrix sono attualmente in fase di sviluppo.",
+        inDevelopment: "IN SVILUPPO",
 
-        availableNow:
-            "DISPONIBILE ORA",
+        playSomething: "GIOCA A QUALCOSA DI NUOVO",
+        ourGames: "I nostri giochi",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "IN ARRIVO",
+        gamesTitle: "I giochi stanno arrivando.",
+        gamesDescription: "Stiamo lavorando a nuove esperienze. Torna presto per le nuove uscite.",
 
-        weatherDescription:
-            "Un'app meteo semplice e moderna realizzata da HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Una calcolatrice semplice e moderna realizzata da HyPrix.",
-
-        download:
-            "Scarica",
-
-        moreApps:
-            "Altre app",
-
-        moreAppsDescription:
-            "Nuovi progetti HyPrix sono attualmente in fase di sviluppo.",
-
-        inDevelopment:
-            "IN SVILUPPO",
-
-        playSomething:
-            "GIOCA A QUALCOSA DI NUOVO",
-
-        ourGames:
-            "I nostri giochi",
-
-        comingSoon:
-            "IN ARRIVO",
-
-        gamesTitle:
-            "I giochi stanno arrivando.",
-
-        gamesDescription:
-            "Stiamo lavorando a nuove esperienze. Torna presto per le nuove uscite.",
-
-        aboutHyprix:
-            "CHI SIAMO",
-
-        aboutTitle:
-            "Creiamo cose",
-
-        aboutTitle2:
-            "che vale la pena scaricare.",
-
-        aboutDescription:
-            "HyPrix crea app, giochi e progetti digitali semplici, utili e divertenti."
+        aboutHyprix: "CHI SIAMO",
+        aboutTitle: "Creiamo cose",
+        aboutTitle2: "che vale la pena scaricare.",
+        aboutDescription: "HyPrix crea app, giochi e progetti digitali semplici, utili e divertenti."
     },
-
 
     ja: {
         home: "ホーム",
@@ -496,73 +233,29 @@ const translations = {
         hero2: "ゲーム。",
         hero3: "違いを生み出す。",
 
-        heroText:
-            "HyPrixへようこそ — アプリ、ゲーム、デジタルプロジェクトのホームです。",
+        heroText: "HyPrixへようこそ — アプリ、ゲーム、デジタルプロジェクトのホームです。",
 
-        explore:
-            "プロジェクトを見る →",
+        explore: "プロジェクトを見る →",
 
-        whatWeMake:
-            "私たちが作るもの",
+        whatWeMake: "私たちが作るもの",
+        ourApps: "アプリ",
 
-        ourApps:
-            "アプリ",
+        moreApps: "その他のアプリ",
+        moreAppsDescription: "新しいHyPrixプロジェクトを現在開発中です。",
+        inDevelopment: "開発中",
 
-        availableNow:
-            "現在利用可能",
+        playSomething: "新しいゲームをプレイ",
+        ourGames: "ゲーム",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "近日公開",
+        gamesTitle: "ゲームが登場します。",
+        gamesDescription: "新しい体験を開発中です。リリース情報をお楽しみに。",
 
-        weatherDescription:
-            "HyPrixが開発したシンプルでモダンな天気アプリです。",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "HyPrixが開発したシンプルでモダンな計算機です。",
-
-        download:
-            "ダウンロード",
-
-        moreApps:
-            "その他のアプリ",
-
-        moreAppsDescription:
-            "新しいHyPrixプロジェクトを現在開発中です。",
-
-        inDevelopment:
-            "開発中",
-
-        playSomething:
-            "新しいゲームをプレイ",
-
-        ourGames:
-            "ゲーム",
-
-        comingSoon:
-            "近日公開",
-
-        gamesTitle:
-            "ゲームが登場します。",
-
-        gamesDescription:
-            "新しい体験を開発中です。リリース情報をお楽しみに。",
-
-        aboutHyprix:
-            "HyPrixについて",
-
-        aboutTitle:
-            "ダウンロードする価値のあるものを",
-
-        aboutTitle2:
-            "作っています。",
-
-        aboutDescription:
-            "HyPrixは、シンプルで便利で楽しいアプリ、ゲーム、デジタルプロジェクトを制作しています。"
+        aboutHyprix: "HyPrixについて",
+        aboutTitle: "ダウンロードする価値のあるものを",
+        aboutTitle2: "作っています。",
+        aboutDescription: "HyPrixは、シンプルで便利で楽しいアプリ、ゲーム、デジタルプロジェクトを制作しています。"
     },
-
 
     ko: {
         home: "홈",
@@ -576,73 +269,29 @@ const translations = {
         hero2: "게임.",
         hero3: "다르게 만듭니다.",
 
-        heroText:
-            "HyPrix에 오신 것을 환영합니다 — 앱, 게임 및 디지털 프로젝트의 공간입니다.",
+        heroText: "HyPrix에 오신 것을 환영합니다 — 앱, 게임 및 디지털 프로젝트의 공간입니다.",
 
-        explore:
-            "프로젝트 둘러보기 →",
+        explore: "프로젝트 둘러보기 →",
 
-        whatWeMake:
-            "우리가 만드는 것",
+        whatWeMake: "우리가 만드는 것",
+        ourApps: "앱",
 
-        ourApps:
-            "앱",
+        moreApps: "더 많은 앱",
+        moreAppsDescription: "새로운 HyPrix 프로젝트를 현재 개발하고 있습니다.",
+        inDevelopment: "개발 중",
 
-        availableNow:
-            "지금 사용 가능",
+        playSomething: "새로운 것을 플레이하세요",
+        ourGames: "게임",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "출시 예정",
+        gamesTitle: "게임이 곧 출시됩니다.",
+        gamesDescription: "새로운 경험을 개발하고 있습니다. 출시 소식을 기대해 주세요.",
 
-        weatherDescription:
-            "HyPrix가 만든 간단하고 현대적인 날씨 앱입니다.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "HyPrix가 만든 간단하고 현대적인 계산기입니다.",
-
-        download:
-            "다운로드",
-
-        moreApps:
-            "더 많은 앱",
-
-        moreAppsDescription:
-            "새로운 HyPrix 프로젝트를 현재 개발하고 있습니다.",
-
-        inDevelopment:
-            "개발 중",
-
-        playSomething:
-            "새로운 것을 플레이하세요",
-
-        ourGames:
-            "게임",
-
-        comingSoon:
-            "출시 예정",
-
-        gamesTitle:
-            "게임이 곧 출시됩니다.",
-
-        gamesDescription:
-            "새로운 경험을 개발하고 있습니다. 출시 소식을 기대해 주세요.",
-
-        aboutHyprix:
-            "HyPrix 소개",
-
-        aboutTitle:
-            "다운로드할 가치가 있는 것을",
-
-        aboutTitle2:
-            "만듭니다.",
-
-        aboutDescription:
-            "HyPrix는 간단하고 유용하며 재미있는 앱, 게임 및 디지털 프로젝트를 만듭니다."
+        aboutHyprix: "HyPrix 소개",
+        aboutTitle: "다운로드할 가치가 있는 것을",
+        aboutTitle2: "만듭니다.",
+        aboutDescription: "HyPrix는 간단하고 유용하며 재미있는 앱, 게임 및 디지털 프로젝트를 만듭니다."
     },
-
 
     zh: {
         home: "首页",
@@ -656,73 +305,29 @@ const translations = {
         hero2: "游戏。",
         hero3: "与众不同。",
 
-        heroText:
-            "欢迎来到 HyPrix — 我们的应用、游戏和数字项目之家。",
+        heroText: "欢迎来到 HyPrix — 我们的应用、游戏和数字项目之家。",
 
-        explore:
-            "探索项目 →",
+        explore: "探索项目 →",
 
-        whatWeMake:
-            "我们制作什么",
+        whatWeMake: "我们制作什么",
+        ourApps: "我们的应用",
 
-        ourApps:
-            "我们的应用",
+        moreApps: "更多应用",
+        moreAppsDescription: "新的 HyPrix 项目正在开发中。",
+        inDevelopment: "开发中",
 
-        availableNow:
-            "现已推出",
+        playSomething: "玩点新东西",
+        ourGames: "我们的游戏",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "即将推出",
+        gamesTitle: "游戏即将到来。",
+        gamesDescription: "我们正在开发新的体验。请稍后回来查看最新发布。",
 
-        weatherDescription:
-            "由 HyPrix 打造的简单现代天气应用。",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "由 HyPrix 打造的简单现代计算器。",
-
-        download:
-            "下载",
-
-        moreApps:
-            "更多应用",
-
-        moreAppsDescription:
-            "新的 HyPrix 项目正在开发中。",
-
-        inDevelopment:
-            "开发中",
-
-        playSomething:
-            "玩点新东西",
-
-        ourGames:
-            "我们的游戏",
-
-        comingSoon:
-            "即将推出",
-
-        gamesTitle:
-            "游戏即将到来。",
-
-        gamesDescription:
-            "我们正在开发新的体验。请稍后回来查看最新发布。",
-
-        aboutHyprix:
-            "关于 HyPrix",
-
-        aboutTitle:
-            "我们制作",
-
-        aboutTitle2:
-            "值得下载的东西。",
-
-        aboutDescription:
-            "HyPrix 创建简单、有用且有趣的应用、游戏和数字项目。"
+        aboutHyprix: "关于 HyPrix",
+        aboutTitle: "我们制作",
+        aboutTitle2: "值得下载的东西。",
+        aboutDescription: "HyPrix 创建简单、有用且有趣的应用、游戏和数字项目。"
     },
-
 
     ru: {
         home: "Главная",
@@ -736,72 +341,30 @@ const translations = {
         hero2: "Игры.",
         hero3: "Сделано иначе.",
 
-        heroText:
-            "Добро пожаловать в HyPrix — место наших приложений, игр и цифровых проектов.",
+        heroText: "Добро пожаловать в HyPrix — место наших приложений, игр и цифровых проектов.",
 
-        explore:
-            "Исследовать проекты →",
+        explore: "Исследовать проекты →",
 
-        whatWeMake:
-            "ЧТО МЫ СОЗДАЁМ",
+        whatWeMake: "ЧТО МЫ СОЗДАЁМ",
+        ourApps: "Наши приложения",
 
-        ourApps:
-            "Наши приложения",
+        moreApps: "Другие приложения",
+        moreAppsDescription: "Новые проекты HyPrix сейчас находятся в разработке.",
+        inDevelopment: "В РАЗРАБОТКЕ",
 
-        availableNow:
-            "ДОСТУПНО СЕЙЧАС",
+        playSomething: "ПОИГРАЙТЕ ВО ЧТО-ТО НОВОЕ",
+        ourGames: "Наши игры",
 
-        weather:
-            "HyPrix Weather",
+        comingSoon: "СКОРО",
+        gamesTitle: "Игры уже в пути.",
+        gamesDescription: "Мы работаем над новыми впечатлениями. Загляните позже, чтобы узнать о релизах.",
 
-        weatherDescription:
-            "Простое и современное погодное приложение от HyPrix.",
-
-        calculator:
-            "HyPrix Calculator",
-
-        calculatorDescription:
-            "Простой и современный калькулятор от HyPrix.",
-
-        download:
-            "Скачать",
-
-        moreApps:
-            "Другие приложения",
-
-        moreAppsDescription:
-            "Новые проекты HyPrix сейчас находятся в разработке.",
-
-        inDevelopment:
-            "В РАЗРАБОТКЕ",
-
-        playSomething:
-            "ПОИГРАЙТЕ ВО ЧТО-ТО НОВОЕ",
-
-        ourGames:
-            "Наши игры",
-
-        comingSoon:
-            "СКОРО",
-
-        gamesTitle:
-            "Игры уже в пути.",
-
-        gamesDescription:
-            "Мы работаем над новыми впечатлениями. Загляните позже, чтобы узнать о релизах.",
-
-        aboutHyprix:
-            "О HyPrix",
-
-        aboutTitle:
-            "Мы создаём вещи",
-
-        aboutTitle2:
-            "которые стоит скачать.",
-
-        aboutDescription:
-            "HyPrix создаёт приложения, игры и цифровые проекты, которые просты, полезны и интересны."
+        aboutHyprix: "О HyPrix",
+        aboutTitle: "Мы создаём вещи",
+        aboutTitle2: "которые стоит скачать.",
+        aboutDescription: "HyPrix создаёт приложения, игры и цифровые проекты, которые просты, полезны и интересны."
     }
+
 };
 
 
@@ -811,22 +374,17 @@ const translations = {
 
 function detectLanguage() {
 
-    const saved =
-        localStorage.getItem("hyprix-language");
+    const saved = localStorage.getItem("hyprix-language");
 
     if (saved && translations[saved]) {
         return saved;
     }
 
-    const browser =
-        navigator.language || "en";
+    const browser = navigator.language || "en";
 
-    const language =
-        browser.toLowerCase().split("-")[0];
+    const language = browser.toLowerCase().split("-")[0];
 
-    return translations[language]
-        ? language
-        : "en";
+    return translations[language] ? language : "en";
 }
 
 
@@ -845,174 +403,68 @@ function translatePage(language) {
 
     /* NAVIGATION */
 
-    document.querySelector(
-        'nav a[href="#home"]'
-    ).textContent = t.home;
-
-    document.querySelector(
-        'nav a[href="#apps"]'
-    ).textContent = t.apps;
-
-    document.querySelector(
-        'nav a[href="#games"]'
-    ).textContent = t.games;
-
-    document.querySelector(
-        'nav a[href="#about"]'
-    ).textContent = t.about;
+    document.querySelector('nav a[href="#home"]').textContent = t.home;
+    document.querySelector('nav a[href="#apps"]').textContent = t.apps;
+    document.querySelector('nav a[href="#games"]').textContent = t.games;
+    document.querySelector('nav a[href="#about"]').textContent = t.about;
 
 
     /* HERO */
 
-    document.querySelector(
-        ".badge"
-    ).textContent = t.badge;
+    document.querySelector(".badge").textContent = t.badge;
 
-    document.querySelector(
-        ".hero h1"
-    ).innerHTML =
+    document.querySelector(".hero h1").innerHTML =
         `${t.hero1}<br>${t.hero2}<br><span>${t.hero3}</span>`;
 
-    document.querySelector(
-        ".hero p"
-    ).textContent = t.heroText;
+    document.querySelector(".hero p").textContent = t.heroText;
 
-    document.querySelector(
-        ".hero .button"
-    ).textContent = t.explore;
+    document.querySelector(".hero .button").textContent = t.explore;
 
 
-    /* APPS HEADER */
+    /* APPS */
 
-    document.querySelector(
-        "#apps .section-label"
-    ).textContent = t.whatWeMake;
+    document.querySelector("#apps .section-label").textContent = t.whatWeMake;
 
-    document.querySelector(
-        "#apps h2"
-    ).textContent = t.ourApps;
+    document.querySelector("#apps h2").textContent = t.ourApps;
 
 
-    /* APP CARDS */
+    /* MORE APPS CARD */
 
-    const appCards =
-        document.querySelectorAll("#apps .cards > .card");
+    const moreApps = document.querySelector("#apps .cards > .card");
 
+    if (moreApps) {
 
-    /*
-       CARD 1 = WEATHER
-    */
+        moreApps.querySelector("h3").textContent = t.moreApps;
 
-    if (appCards[0]) {
+        moreApps.querySelector("p").textContent = t.moreAppsDescription;
 
-        const weather =
-            appCards[0];
+        moreApps.querySelector(".status").textContent = t.inDevelopment;
 
-        weather.querySelector(
-            ".status"
-        ).textContent = t.availableNow;
-
-        weather.querySelector(
-            "h3"
-        ).textContent = t.weather;
-
-        weather.querySelector(
-            "p"
-        ).textContent = t.weatherDescription;
-
-        weather.querySelector(
-            ".download-button"
-        ).textContent = t.download;
-    }
-
-
-    /*
-       CARD 2 = CALCULATOR
-    */
-
-    if (appCards[1]) {
-
-        const calculator =
-            appCards[1];
-
-        calculator.querySelector(
-            ".status"
-        ).textContent = t.availableNow;
-
-        calculator.querySelector(
-            "h3"
-        ).textContent = t.calculator;
-
-        calculator.querySelector(
-            "p"
-        ).textContent = t.calculatorDescription;
-
-        calculator.querySelector(
-            ".download-button"
-        ).textContent = t.download;
-    }
-
-
-    /*
-       CARD 3 = MORE APPS
-    */
-
-    if (appCards[2]) {
-
-        const moreApps =
-            appCards[2];
-
-        moreApps.querySelector(
-            "h3"
-        ).textContent = t.moreApps;
-
-        moreApps.querySelector(
-            "p"
-        ).textContent = t.moreAppsDescription;
-
-        moreApps.querySelector(
-            ".status"
-        ).textContent = t.inDevelopment;
     }
 
 
     /* GAMES */
 
-    document.querySelector(
-        "#games .section-label"
-    ).textContent = t.playSomething;
+    document.querySelector("#games .section-label").textContent = t.playSomething;
 
-    document.querySelector(
-        "#games h2"
-    ).textContent = t.ourGames;
+    document.querySelector("#games h2").textContent = t.ourGames;
 
-    document.querySelector(
-        ".game-box .status"
-    ).textContent = t.comingSoon;
+    document.querySelector(".game-box .status").textContent = t.comingSoon;
 
-    document.querySelector(
-        ".game-box h3"
-    ).textContent = t.gamesTitle;
+    document.querySelector(".game-box h3").textContent = t.gamesTitle;
 
-    document.querySelector(
-        ".game-box p"
-    ).textContent = t.gamesDescription;
+    document.querySelector(".game-box p").textContent = t.gamesDescription;
 
 
     /* ABOUT */
 
-    document.querySelector(
-        "#about .section-label"
-    ).textContent = t.aboutHyprix;
+    document.querySelector("#about .section-label").textContent = t.aboutHyprix;
 
-    document.querySelector(
-        "#about h2"
-    ).innerHTML =
+    document.querySelector("#about h2").innerHTML =
         `${t.aboutTitle}<br><span>${t.aboutTitle2}</span>`;
 
-    document.querySelector(
-        "#about > p:last-child"
-    ).textContent = t.aboutDescription;
+    document.querySelector("#about > p:last-child").textContent = t.aboutDescription;
+
 }
 
 
@@ -1022,13 +474,12 @@ function translatePage(language) {
 
 function createLanguageButton() {
 
-    const container =
-        document.createElement("div");
+    const container = document.createElement("div");
 
-    container.id =
-        "language-container";
+    container.id = "language-container";
 
     container.innerHTML = `
+
         <button
             id="language-button"
             type="button"
@@ -1039,126 +490,70 @@ function createLanguageButton() {
 
         <div id="language-menu">
 
-            <button data-language="en">
-                🇺🇸 English
-            </button>
-
-            <button data-language="es">
-                🇪🇸 Español
-            </button>
-
-            <button data-language="fr">
-                🇫🇷 Français
-            </button>
-
-            <button data-language="de">
-                🇩🇪 Deutsch
-            </button>
-
-            <button data-language="pt">
-                🇵🇹 Português
-            </button>
-
-            <button data-language="it">
-                🇮🇹 Italiano
-            </button>
-
-            <button data-language="ja">
-                🇯🇵 日本語
-            </button>
-
-            <button data-language="ko">
-                🇰🇷 한국어
-            </button>
-
-            <button data-language="zh">
-                🇨🇳 中文
-            </button>
-
-            <button data-language="ru">
-                🇷🇺 Русский
-            </button>
+            <button data-language="en">🇺🇸 English</button>
+            <button data-language="es">🇪🇸 Español</button>
+            <button data-language="fr">🇫🇷 Français</button>
+            <button data-language="de">🇩🇪 Deutsch</button>
+            <button data-language="pt">🇵🇹 Português</button>
+            <button data-language="it">🇮🇹 Italiano</button>
+            <button data-language="ja">🇯🇵 日本語</button>
+            <button data-language="ko">🇰🇷 한국어</button>
+            <button data-language="zh">🇨🇳 中文</button>
+            <button data-language="ru">🇷🇺 Русский</button>
 
         </div>
+
     `;
 
 
-    document
-        .querySelector("header")
-        .appendChild(container);
+    document.querySelector("header").appendChild(container);
 
 
-    const button =
-        document.getElementById(
-            "language-button"
-        );
+    const button = document.getElementById("language-button");
 
-    const menu =
-        document.getElementById(
-            "language-menu"
-        );
+    const menu = document.getElementById("language-menu");
 
 
-    button.addEventListener(
-        "click",
-        function () {
+    /* OPEN LANGUAGE MENU */
 
-            menu.classList.toggle(
-                "open"
-            );
+    button.addEventListener("click", function () {
 
-        }
-    );
+        menu.classList.toggle("open");
+
+    });
 
 
-    menu
-        .querySelectorAll("button")
-        .forEach(function (item) {
+    /* SELECT LANGUAGE */
 
-            item.addEventListener(
-                "click",
-                function () {
+    menu.querySelectorAll("button").forEach(function (item) {
 
-                    const language =
-                        this.dataset.language;
+        item.addEventListener("click", function () {
 
-                    localStorage.setItem(
-                        "hyprix-language",
-                        language
-                    );
+            const language = this.dataset.language;
 
-                    translatePage(
-                        language
-                    );
+            localStorage.setItem("hyprix-language", language);
 
-                    menu.classList.remove(
-                        "open"
-                    );
+            translatePage(language);
 
-                }
-            );
+            menu.classList.remove("open");
 
         });
 
+    });
 
-    document.addEventListener(
-        "click",
-        function (event) {
 
-            if (
-                !container.contains(
-                    event.target
-                )
-            ) {
+    /* CLOSE MENU WHEN CLICKING OUTSIDE */
 
-                menu.classList.remove(
-                    "open"
-                );
+    document.addEventListener("click", function (event) {
 
-            }
+        if (!container.contains(event.target)) {
+
+            menu.classList.remove("open");
 
         }
-    );
+
+    });
+
 }
 
 
@@ -1166,15 +561,11 @@ function createLanguageButton() {
    Start
    ========================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        createLanguageButton();
+    createLanguageButton();
 
-        translatePage(
-            detectLanguage()
-        );
+    translatePage(detectLanguage());
 
-    }
-);
+});
+```
